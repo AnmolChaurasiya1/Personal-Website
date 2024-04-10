@@ -1,0 +1,784 @@
+/* Page CSS */
+:root{
+    --yellow: #f9ca24;
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --ternary-color: #bab9b9;
+    --fourth-color: #8b8b8b;
+}
+
+.dark-theme{
+    --primary-color: #edf2fc;
+    --secondary-color: #000000;
+    --ternary-color: #1a1a1a;
+    --fourth-color: #333;
+}
+
+
+*{
+    font-family:   'Times New Roman';
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear ;
+}
+*::selection{
+    background: var(--yellow);
+    color: var(--secondary-color);
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+html::-webkit-scrollbar{
+    width: 1.4rem;
+}
+html::-webkit-scrollbar-track{
+    background: var(--secondary-color);
+}
+html::-webkit-scrollbar-thumb{
+    background: var(--yellow);
+}
+body{
+    background: var(--secondary-color);
+    overflow-x: hidden;
+    padding-left: 35rem;
+}
+
+
+
+/* Header Starts */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 35rem;
+    background: var(--ternary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+}
+
+header .user .profile{
+    height: 17rem;
+    width: 17rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 0.7rem solid var(--yellow);
+}
+
+header .user .name{
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+
+header .user .post{
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+header .navbar{
+    width: 100%;
+}
+
+header .navbar ul{
+    list-style: none;
+    padding: 1rem 3rem;
+}
+
+header .navbar ul li a{
+    display: block;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    background: var(--fourth-color);
+    color: var(--primary-color);
+    font-size: 2rem;
+    border-radius: 5rem;
+}
+
+header .navbar ul li a:hover{
+    background: var(--yellow);
+}
+
+
+#menu{
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: var(--fourth-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    display: none;
+}
+
+
+#icon{
+    width: 4rem;
+    cursor: pointer;
+}
+
+
+
+/* Home starts */
+
+.revolver{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.html1{
+    width: 50px;
+    height: 55px;
+    animation: html 5s infinite;
+}
+.css1{
+    width: 50px;
+    height: 57px;
+    animation: html 5s infinite;
+}
+.js1{
+    width: 50px;
+    height: 56px;
+    animation: html 5s infinite;
+}
+.bs1{
+    width: 50px;
+    height: 40px;
+    animation: html 5s infinite;
+}
+.jq1{
+    width: 50px;
+    height: 50px;
+    animation: html 5s infinite;
+}
+@keyframes html{
+   0%{
+    rotate: 360deg;
+    scale: 0.5;
+   }
+   50%{
+    scale: 1.5;
+   }
+}
+
+
+section{
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.home{
+    display: flex;
+    /* align-items: center; */
+    flex-flow: column;
+    padding: 0 15rem;
+    justify-content: center;
+}
+
+.home h3{
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.home h1{
+    font-size: 5rem;
+    color: var(--primary-color);
+}
+
+.home h1 span{
+    color: var(--yellow);
+}
+
+.home p{
+    font-size: 2rem;
+    color: var(--primary-color);
+    padding: 1rem 0;
+}
+
+.btn{
+    padding: 0.7rem 3rem;
+    background: var(--fourth-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 2rem;
+    border-radius: 5rem;
+}
+.btn i{
+    padding: 0 0.5rem;
+    font-size: 1.8rem;
+}
+.btn:hover{
+    background: var(--yellow);
+}
+
+
+
+/* Typing Text Animation */
+
+.container{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+.container .text{
+    position: relative;
+    color: #4070F4;
+    font-size: 30px;
+    font-weight: 600;
+}
+.container .text.first-text{
+    color: #FFF;
+}
+.text.sec-text:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary-color);
+    border-left: 2px solid var(--primary-color);
+    animation: animate 4s steps(12) infinite;
+}
+@keyframes animate{
+    40%, 60%{
+        left: calc(100% + 4px);
+    }
+    100%{
+        left: 0%;
+    }
+}
+.javascript{
+    padding-left: 40px;
+}
+
+
+
+/* About starts */
+.about{
+    background-color: var(--fourth-color);
+}
+
+.heading{
+    text-align: center;
+    margin: 0 6rem;
+    font-size: 4rem;
+    padding: 1rem;
+    border-bottom: 0.2rem solid var(--primary-color);
+    color: var(--primary-color);
+}
+.heading span{
+    color: var(--yellow);
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.about .row .info{
+    flex: 1 1 48rem;
+    padding: 2rem 1rem;
+    padding-left: 6rem;
+}
+.about .row .info h3{
+    font-size: 2rem;
+    color: var(--yellow);
+    padding: 1rem 0;
+    font-weight: normal;
+}
+.about .row .info h3 span{
+    color: var(--primary-color);
+    padding: 0 0.5rem;
+}
+
+.about .row .counter{
+    flex: 1 1 48rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.about .row .counter .box{
+    width: 20rem;
+    background: var(--secondary-color);
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem;
+}
+.about .row .counter .box span{
+    font-size: 4rem;
+    color: var(--yellow);
+}
+.about .row .counter .box h3{
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.download{
+    background-color: var(--secondary-color);
+}
+
+
+
+
+/* Education starts */
+.education .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    padding-left: 3rem;
+}
+.education .box-container .box{
+    width: 27rem;
+    margin: 4rem 1rem;
+    padding-left: 4rem;
+    border-left: 0.2rem solid var(--primary-color);
+    position: relative;
+}
+.education .box-container .box span{
+    font-size: 1.3rem;
+    background: var(--fourth-color);
+    color: var(--primary-color);
+    border-radius: 5rem;
+    padding: 0.5rem 2.5rem;
+}
+.education .box-container .box h3{
+    font-size: 2rem;
+    color: var(--primary-color);
+    padding-top: 1.5rem;
+}
+.education .box-container .box p{
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    padding: 1rem 0;
+}
+.education .box-container .box i{
+    position: absolute;
+    top: -1.5rem;
+    left: -2.5rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    background-color: var(--yellow);
+}
+
+
+
+
+/* Portfolio starts */
+.portfolio{
+    background-color: var(--fourth-color);
+}
+
+.portfolio .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    margin-top: 3.125rem;
+}
+.portfolio .box-container .box{
+    height: 20rem;
+    width: 26rem;
+    border-radius: 1rem;
+    margin: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+.portfolio .box-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+    display: block;
+    transition: transform 0.5s;
+}
+.portfolio .box-container .box .layer{
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.6),var(--yellow));
+    border-radius: 50px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 2.5rem;
+    text-align: center;
+    font-size: 0.875;
+    transition: height 0.5s;
+}
+.portfolio .box-container .box .layer h2{
+    font-family: agbalumo, Times New Roman;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+.portfolio .box-container .box .layer h3{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.portfolio .box-container .box .layer a{
+    margin-top: 1.25rem;
+    color: #ff004f;
+    text-decoration: none;
+    font-size: 1.5rem;
+    line-height: 4rem;
+    background-color: var(--primary-color);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    text-align: center;
+}
+.portfolio .box-container .box .layer a:hover{
+    background-color: #ff004f;
+    color: var(--primary-color);
+}
+
+.portfolio .box-container .box:hover .layer{
+    height: 100%;
+}
+
+.portfolio .box-container .box:hover img{
+    border-radius: 50px;
+}
+
+
+
+/* Contact starts */
+.contact .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.contact .row .content{
+    flex: 1 1 30rem;
+    padding: 4rem;
+    padding-bottom: 0;
+}
+.contact .row form{
+    flex: 1 1 45rem;
+    padding: 2rem;
+    margin: 2rem;
+    margin-bottom: 4rem;
+}
+.contact .row form .box{
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background: var(--ternary-color);
+    color: var(--primary-color);
+    text-transform: none;
+    font-size: 1.7rem;
+    width: 100%;
+}
+.contact .row form .box::placeholder{
+    text-transform: capitalize;
+}
+
+.contact .row form .message{
+    height: 15rem;
+    resize: none;
+}
+.contact .row .content .title{
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+.contact .row .content .info h3{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    padding: 1rem 0;
+    font-weight: normal;
+}
+.contact .row .content .info h3 i{
+    padding-right: 1rem;
+    color: var(--yellow);
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding: 1.563rem 0;
+    background: var(--fourth-color);
+    font-weight: 300;
+    margin-top: 20px;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+
+/* Scroll to Top Starts */
+.top{
+    position: fixed;
+    bottom: 7.5rem;
+    right: 2rem;
+    z-index: 100;
+    font-size: 30px;
+    background-color: var(--primary-color);
+    width: 4rem;
+    display: none;
+}
+
+
+
+
+/* Media Queries */
+
+@media (max-width: 1200px){
+    html{
+        font-size: 55%;
+    }
+
+    .home{
+        padding: 1rem 4rem;
+    }
+}
+
+
+@media (max-width: 991px){
+    header{
+        left: -120%;
+    }
+
+    #menu{
+        display: block;
+    }
+
+    header.toggle{
+        left: 0%;
+    }
+
+    body{
+        padding: 0;
+    }
+}
+
+
+@media (max-width: 768px){
+    html{
+        font-size: 50%;
+    }
+
+    .copyright{
+        font-size: 0.875;
+    }
+
+    .container{
+        display: none;
+    }
+}
+
+
+@media (max-width: 400px){
+    header{
+        width: 100vw;
+    }
+    
+    .heading{
+        margin: 0 3rem;
+    }
+
+    .about .row .counter .box{
+       width: 100%;
+    }
+
+    .education .box-container .box{
+        width: 100%;
+    }
+
+    .portfolio .box-container .box{
+        width: 100%;
+    }
+
+    .contact .row form{
+        margin: 3rem 0;
+    }
+
+
+    .revolver{
+        display: inline-flex;
+        flex-direction: column;
+        height: 400px;
+        justify-content: space-around;
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+
+}
+
+
+
+
+/* -----------------Animate on Scroll----------------- */
+/* home */
+.home, .about, .education{
+    flex-direction: column;
+    align-items: start;
+    min-height: 100vh;
+}
+
+.home .animate{
+    transform: translateX(-400%);
+}
+
+.home.show-animate .animate{
+    transform: translateX(0);
+    transition: 1s;
+}
+
+
+/* about */
+.about{
+    align-items: center;
+}
+
+.about .info .animate{
+    transform: translate(-200%, 200px);
+    transition: 1s;
+} 
+
+.about .counter .b1{
+    transform: skew(90deg);
+
+}
+.about .counter .b2{
+    transform: skew(90deg);
+}
+.about .counter .b3{
+    transform: skew(90deg);
+
+}
+.about .counter .b4{
+    transform: skew(90deg);
+}
+
+
+.about.show-animate .animate{
+    transform: skew(0);
+    transition: 1s;
+}
+
+
+
+/* education */
+.education{
+    align-items: center;
+}
+
+.education .box-container .box1{
+    transform: translate(500%, 700px);
+    transition: 1s;
+}
+.education .box-container .box2{
+    transform: translate(500%, 800px);
+    transition: 1s;
+}
+.education .box-container .box3{
+    transform: translate(500%, 900px);
+    transition: 1s;
+}
+.education .box-container .box4{
+    transform: translate(500%, 1000px);
+    transition: 1s;
+}
+
+
+.education.show-animate .box1 {
+   transform: translate(0);
+    transition: 1s;
+}
+.education.show-animate .box2 {
+    transform: translate(0);
+     transition: 1.5s;
+ }
+ .education.show-animate .box3 {
+    transform: translate(0);
+     transition: 2s;
+ }
+ .education.show-animate .box4 {
+    transform: translate(0);
+     transition: 2.5s;
+ }
+
+
+
+
+ /* portfolio */
+ .portfolio{
+    align-items: center;
+ }
+
+
+/* for left side */
+.portfolio .box-container .animate1,
+.portfolio .box-container .animate4,
+.portfolio .box-container .animate7,
+.portfolio .box-container .animate10,
+.portfolio .box-container .animate13{
+    transform: skew(90deg);
+    transition: 1s;
+}
+/* for right side */
+.portfolio .box-container .animate3,
+.portfolio .box-container .animate6,
+.portfolio .box-container .animate9,
+.portfolio .box-container .animate12,
+.portfolio .box-container .animate15{
+    transform: skew(90deg);
+    transition: 1s;
+}
+/* for middle */
+.portfolio .box-container .animate2,
+.portfolio .box-container .animate5,
+.portfolio .box-container .animate8,
+.portfolio .box-container .animate11,
+.portfolio .box-container .animate14{
+    transform: skew(90deg);
+    transition: 1s;
+}
+
+.portfolio.show-animate .box{
+    transform: skew(0);
+    transition: 1.5s;
+}
+
+
+
+/* back to top */
+.top i{
+    color: var(--secondary-color);
+    padding-left: 6px;
+}

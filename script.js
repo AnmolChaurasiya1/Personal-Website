@@ -1,69 +1,263 @@
-$(document).ready(function(){
-    $('#menu').click(function(){
-        $(this).toggleClass('fa-times');
-        $('header').toggleClass('toggle');
-    });
+/*=====================================
+        MOBILE MENU
+======================================*/
 
-    $(window).on('scroll load', function(){
-        $('#menu').removeClass('fa-times');
-        $('header').removeClass('toggle');
+const menu=document.querySelector(".menu");
+const nav=document.querySelector(".nav-links");
 
-        if($(window).scrollTop() > 0){
-            $('.top').show();
-        }else{
-            $('.top').hide();
-        }
-    });
+menu.onclick=()=>{
 
-    // Smooth Scrolling
+    nav.classList.toggle("active");
 
-    $('a[href*="#"]').on('click', function(e){
-        e.preventDefault();
+    if(menu.classList.contains("fa-bars")){
+        menu.classList.replace("fa-bars","fa-times");
+    }else{
+        menu.classList.replace("fa-times","fa-bars");
+    }
 
-        $('html, body').animate({
-           scrollTop : $($(this).attr('href')).offset().top, 
-        },
-        500,
-        'linear'
-        );
-    });
+};
+
+/*=====================================
+        CLOSE MENU ON CLICK
+======================================*/
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+    link.onclick=()=>{
+
+        nav.classList.remove("active");
+
+        menu.classList.replace("fa-times","fa-bars");
+
+    }
 
 });
 
+/*=====================================
+        STICKY HEADER
+======================================*/
 
+window.addEventListener("scroll",()=>{
 
+    const header=document.querySelector("header");
 
-// Animate on Scroll
+    header.classList.toggle("sticky",window.scrollY>40);
 
-let sections = document.querySelectorAll('section');
+});
 
-window.onscroll=()=> {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
+/*=====================================
+        SCROLL TO TOP
+======================================*/
 
-        if(top >= offset && top < offset + height){
-            sec.classList.add('show-animate');
+const scrollBtn=document.getElementById("scrollTop");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.pageYOffset>500){
+
+        scrollBtn.style.opacity="1";
+        scrollBtn.style.visibility="visible";
+
+    }
+
+    else{
+
+        scrollBtn.style.opacity="0";
+        scrollBtn.style.visibility="hidden";
+
+    }
+
+});
+
+/*=====================================
+        ACTIVE NAVBAR
+======================================*/
+
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll(".nav-links a");
+
+window.onscroll=()=>{
+
+    let current="";
+
+    sections.forEach(section=>{
+
+        const sectionTop=section.offsetTop-120;
+
+        if(pageYOffset>=sectionTop){
+
+            current=section.getAttribute("id");
+
         }
-        else{
-            sec.classList.remove('show-animate');
-        }
+
     });
+
+    navLinks.forEach(link=>{
+
+        link.classList.remove("active");
+
+        if(link.href.includes(current)){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+};
+
+/*=====================================
+        REVEAL ANIMATION
+======================================*/
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
 }
 
+});
 
+},{threshold:.2});
 
-// Website theme changer (light/dark)
+document.querySelectorAll(".fade-up,.zoom").forEach(el=>{
 
-var icon = document.getElementById("icon");
+observer.observe(el);
 
-icon.onclick = function(){
-    document.body.classList.toggle("dark-theme");
+});
 
-    if(document.body.classList.contains("dark-theme")){
-        icon.src = "sun.png";
-    }else{
-        icon.src = "moon.png";
-    }
+/*=====================================
+        TYPEWRITER
+======================================*/
+
+const roles=[
+
+"Software Developer",
+
+"Java Developer",
+
+"Full Stack Developer",
+
+"Backend Developer",
+
+"AI Enthusiast"
+
+];
+
+let roleIndex=0;
+
+let charIndex=0;
+
+const typing=document.getElementById("typing");
+
+function type(){
+
+if(charIndex<roles[roleIndex].length){
+
+typing.textContent+=roles[roleIndex].charAt(charIndex);
+
+charIndex++;
+
+setTimeout(type,100);
+
+}
+
+else{
+
+setTimeout(erase,1500);
+
+}
+
+}
+
+function erase(){
+
+if(charIndex>0){
+
+typing.textContent=roles[roleIndex].substring(0,charIndex-1);
+
+charIndex--;
+
+setTimeout(erase,50);
+
+}
+
+else{
+
+roleIndex++;
+
+if(roleIndex>=roles.length){
+
+roleIndex=0;
+
+}
+
+setTimeout(type,400);
+
+}
+
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+if(typing){
+
+type();
+
+}
+
+});
+
+/*=====================================
+        COUNTER
+======================================*/
+
+const counters=document.querySelectorAll(".counter");
+
+const speed=120;
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.dataset.target;
+
+const count=+counter.innerText;
+
+const inc=target/speed;
+
+if(count<target){
+
+counter.innerText=Math.ceil(count+inc);
+
+setTimeout(update,20);
+
+}
+
+else{
+
+counter.innerText=target;
+
+}
+
+}
+
+update();
+
+});
+
+/*=====================================
+        CURRENT YEAR
+======================================*/
+
+const year=document.getElementById("year");
+
+if(year){
+
+year.innerHTML=new Date().getFullYear();
+
 }

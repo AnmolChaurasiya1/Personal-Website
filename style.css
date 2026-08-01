@@ -235,6 +235,39 @@ nav{
 
 }
 
+.hero-right{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-right img{
+    width:360px;
+    height:360px;
+    object-fit:cover;
+    border-radius:50%;
+    border:6px solid #3b82f6;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+@media(max-width:992px){
+
+.hero-right img{
+    width:280px;
+    height:280px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-right img{
+    width:220px;
+    height:220px;
+}
+
+}
+
 .hero p{
 
     color:var(--grey);
@@ -986,3 +1019,46 @@ text-align:center;
 
 }
 
+.certificate-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+
+}
+
+.certificate-card{
+
+background:#161b22;
+padding:25px;
+border-radius:18px;
+transition:.35s;
+
+}
+
+.certificate-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.certificate-card h3{
+
+color:#fff;
+margin-bottom:10px;
+
+}
+
+.certificate-card p{
+
+color:#9ca3af;
+margin-bottom:15px;
+
+}
+
+.certificate-card a{
+
+color:#3b82f6;
+font-weight:600;
+
+}
